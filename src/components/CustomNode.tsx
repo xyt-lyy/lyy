@@ -49,7 +49,7 @@ const CustomNode = ({ data, type, selected }: NodeProps) => {
           <div className="text-sm font-bold text-gray-700">
             {data.label || <NodeLabel type={data.nodeType || type} />}
           </div>
-          <div className="text-xs text-gray-500 truncate">
+          <div className="text-xs text-gray-500 line-clamp-3 break-words whitespace-pre-wrap">
             {data.description || '配置节点详情'}
           </div>
         </div>

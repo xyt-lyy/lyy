@@ -363,7 +363,7 @@ export default function Preview() {
               className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               <div
-                className={`max-w-[80%] p-3 rounded-lg text-sm shadow-sm ${
+                className={`max-w-[80%] p-3 rounded-lg text-sm shadow-sm break-words whitespace-pre-wrap ${
                   msg.sender === 'user'
                     ? 'bg-blue-600 text-white rounded-br-none'
                     : 'bg-white text-gray-800 border border-gray-200 rounded-bl-none'
