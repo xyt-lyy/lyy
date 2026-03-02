@@ -22,15 +22,16 @@ const server = app.listen(PORT, () => {
 /**
  * Serve static files in production
  */
-if (process.env.NODE_ENV === 'production') {
-  const distPath = path.join(__dirname, '../dist');
-  app.use(express.static(distPath));
-
-  // Handle SPA routing
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(distPath, 'index.html'));
-  });
-}
+// Moved to app.ts to ensure middleware order is correct (after API routes, before 404)
+// if (process.env.NODE_ENV === 'production') {
+//   const distPath = path.join(__dirname, '../dist');
+//   app.use(express.static(distPath));
+//
+//   // Handle SPA routing
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.join(distPath, 'index.html'));
+//   });
+// }
 
 /**
  * close server

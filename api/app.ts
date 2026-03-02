@@ -59,6 +59,19 @@ app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
 })
 
 /**
+ * Serve static files in production
+ */
+if (process.env.NODE_ENV === 'production') {
+  const distPath = path.join(__dirname, '../dist')
+  app.use(express.static(distPath))
+
+  // Handle SPA routing
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(distPath, 'index.html'))
+  })
+}
+
+/**
  * 404 handler
  */
 app.use((req: Request, res: Response) => {
